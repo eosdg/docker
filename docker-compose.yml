@@ -12,6 +12,6 @@ services:
     build:
         context: ./frontend
     volumes:
-      - ./backend:/usr/app/client
+      - ./frontend:/usr/app/client
     ports: ['80:80']
   
