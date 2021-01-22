@@ -4,14 +4,10 @@ services:
     container_name: backend
     build:
         context: ./backend
-    volumes:
-      - ./backend:/usr/app/server
     ports: ['3420:3420']
   frontend:
     container_name: frontend
     build:
         context: ./frontend
-    volumes:
-      - ./frontend:/usr/app/client
     ports: ['80:80']
   
