@@ -3,7 +3,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /usr/app/
 RUN apk add git
 RUN git clone https://github.com/eosdg/client.git .
-RUN npm install
+RUN npm install --unsafe-perm
 RUN npm run build
 
 # production stage
