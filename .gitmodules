@@ -1,0 +1,6 @@
+[submodule "backend/server-source"]
+	path = backend/server-source
+	url = git@github.com:eosdg/server.git
+[submodule "frontend/client-source"]
+	path = frontend/client-source
+	url = git@github.com:eosdg/client.git
