@@ -1,9 +1,10 @@
 # build stage
 FROM node:lts-alpine as build-stage
 WORKDIR /usr/app/
-RUN apk add git
-RUN git clone https://github.com/eosdg/client.git .
-RUN npm install --unsafe-perm
+COPY client-source/package*.json ./
+COPY client-source/config.template.js ./
+RUN npm ci --silent
+COPY client-source .
 RUN npm run build
 
 # production stage

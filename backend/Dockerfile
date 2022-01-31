@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 WORKDIR /usr/app/
-RUN apk add git
-RUN git clone https://github.com/eosdg/server.git .
-RUN npm install --unsafe-perm
+COPY server-source/package*.json ./
+RUN npm ci --silent
+COPY server-source .
 RUN npm run build
 
 EXPOSE 3420
