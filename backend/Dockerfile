@@ -1,8 +1,8 @@
 FROM node:lts-alpine
 WORKDIR /usr/app/
-COPY server-source/package*.json ./
+COPY source/package*.json ./
 RUN npm ci --silent
-COPY server-source .
+COPY source .
 RUN npm run build
 
 EXPOSE 3420

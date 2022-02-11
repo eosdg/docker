@@ -1,10 +1,10 @@
 # build stage
 FROM node:lts-alpine as build-stage
 WORKDIR /usr/app/
-COPY client-source/package*.json ./
-COPY client-source/config.template.js ./
+COPY source/package*.json ./
+COPY source/config.template.js ./
 RUN npm ci --silent
-COPY client-source .
+COPY source .
 RUN npm run build
 
 # production stage
