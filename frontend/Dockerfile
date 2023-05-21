@@ -5,6 +5,7 @@ COPY source/package*.json ./
 COPY source/config.template.js ./
 RUN npm ci --silent
 COPY source .
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
 
 # production stage
