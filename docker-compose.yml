@@ -2,13 +2,13 @@ version: "3"
 services: 
   backend:
     container_name: backend
-    image: neferin12/eosdg-server
+    image: ghcr.io/eosdg/server
     build:
         context: ./backend
     ports: ['3420:3420']
   frontend:
     container_name: frontend
-    image: neferin12/eosdg-client
+    image: ghcr.io/eosdg/client
     build:
         context: ./frontend
     ports: ['80:80']
