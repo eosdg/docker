@@ -3,7 +3,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /usr/app/
 COPY source/package*.json ./
 COPY source/config.template.js ./
-RUN npm ci --silent
+RUN npm ci
 COPY source .
 ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build
