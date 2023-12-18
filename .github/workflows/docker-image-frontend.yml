@@ -42,10 +42,14 @@ jobs:
             flavor: |
                 latest=false
             tags: |
-                type=semver,pattern={{version}},value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-                type=semver,pattern={{major}}.{{minor}},value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-                type=semver,pattern={{major}}-latest,value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
-                type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+              type=semver,pattern={{version}},value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+              type=semver,pattern={{major}}.{{minor}},value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+              type=semver,pattern={{major}}-latest,value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+              type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'main') }}
+              type=semver,pattern={{version}}-next,value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'next') }}
+              type=semver,pattern={{major}}.{{minor}}-next,value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'next') }}
+              type=semver,pattern={{major}}-next,value=${{steps.package-version.outputs.current-version}},enable=${{ github.ref == format('refs/heads/{0}', 'next') }}
+              type=raw,value=next,enable=${{ github.ref == format('refs/heads/{0}', 'next') }}
 
     - name: Build and push
       uses: docker/build-push-action@v3
