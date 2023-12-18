@@ -2,7 +2,7 @@ name: Docker Image Backend
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, next ]
   workflow_dispatch:
 
 env:
